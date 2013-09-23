@@ -1,7 +1,8 @@
 class gridftp::service (
+    $service = $gridftp::params::service
 ) inherits gridftp::params {
 
-  service {"globus-gridftp-server":
+  service {"$service":
 	ensure		=> running,
 	hasstatus	=> true,
 	hasrestart	=> true,

@@ -60,7 +60,8 @@ class gridftp::config (
     $use_home_dirs		= $gridftp::params::use_home_dirs,
     $debug			= $gridftp::params::debug,
     $thread_model		= $gridftp::params::thread_model,
-    $globus_tcp_port_range      = $gridftp::params::globus_tcp_port_range
+    $globus_tcp_port_range      = $gridftp::params::globus_tcp_port_range,
+    $service = $gridftp::params::service
 
 ) inherits gridftp::params {
 
@@ -68,14 +69,14 @@ class gridftp::config (
     ensure	=> file,
     content	=> template("gridftp/sysconfig.erb"),
     require	=> Package["globus-gridftp-server-progs"],
-    notify	=> Service["globus-gridftp-server"],
+    notify	=> Service["$service"],
   }
 
   file {"$configfile":
     ensure 	=> file,
     content	=> template("gridftp/gridftp.conf.erb"),
     require	=> Package["globus-gridftp-server-progs"],
-    notify	=> Service["globus-gridftp-server"]
+    notify	=> Service["$service"]
   }
 
   file {"$configdir":
