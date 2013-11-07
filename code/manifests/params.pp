@@ -10,6 +10,8 @@ class gridftp::params (
     $chdir_to = hiera("gridftp::params::chdir_to",undef),
     $fork = hiera("gridftp::params::fork",1),
     $single = hiera("gridftp::params::single",0),
+    $user = hiera("gridftp::params::user","root"),
+    $group = hiera("gridftp::params::group","root"),
 
     $auth_level = hiera("gridftp::params::auth_level",undef),
     $allow_from = hiera("gridftp::params::allow_from",undef),		

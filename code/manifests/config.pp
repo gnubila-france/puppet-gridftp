@@ -7,6 +7,8 @@ class gridftp::config (
     $chdir_to			= $gridftp::params::chdir_to,
     $fork			= $gridftp::params::fork,
     $single			= $gridftp::params::single,
+    $user				= $gridftp::params::user,
+    $group				= $gridftp::params::group,
     $auth_level			= $gridftp::params::auth_level,
     $allow_from			= $gridftp::params::allow_from,
     $deny_from			= $gridftp::params::deny_from,
@@ -66,14 +68,18 @@ class gridftp::config (
 ) inherits gridftp::params {
 
   file {"$sysconfigfile":
-    ensure	=> file,
-    content	=> template("gridftp/sysconfig.erb"),
-    require	=> Package["globus-gridftp-server-progs"],
-    notify	=> Service["$service"],
+    ensure  => file,
+    owner   => "${user}",
+    group   => "${group}",
+    content => template("gridftp/sysconfig.erb"),
+    require => Package["globus-gridftp-server-progs"],
+    notify  => Service["$service"],
   }
 
   file {"$configfile":
     ensure 	=> file,
+    owner   => "${user}",
+    group   => "${group}",
     content	=> template("gridftp/gridftp.conf.erb"),
     require	=> Package["globus-gridftp-server-progs"],
     notify	=> Service["$service"]
@@ -81,20 +87,26 @@ class gridftp::config (
 
   file {"$configdir":
     ensure	=> directory,
+    owner   => "${user}",
+    group   => "${group}",
     require	=> Package["globus-gridftp-server-progs"]
   }
 
   if $log_single {
 	file {"$log_single":
-		ensure 		=> file,
-		recurse		=> true,
-		recurselimit	=> 1,
+		ensure       => file,
+    owner        => "${user}",
+    group        => "${group}",
+		recurse      => true,
+		recurselimit => 1,
 	}
   }
 
   if $log_transfer {
 	file {"$log_transfer":
-		recurse	=> true,
+    owner   => "${user}",
+    group   => "${group}",
+		recurse => true,
 	}
   }
 }
