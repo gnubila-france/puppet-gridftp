@@ -63,7 +63,9 @@ class gridftp::config (
     $debug			= $gridftp::params::debug,
     $thread_model		= $gridftp::params::thread_model,
     $globus_tcp_port_range      = $gridftp::params::globus_tcp_port_range,
-    $service = $gridftp::params::service
+    $globus_udp_port_range      = $gridftp::params::globus_udp_port_range,
+    $service = $gridftp::params::service,
+    $udt = $gridftp::params::udt
 
 ) inherits gridftp::params {
 
