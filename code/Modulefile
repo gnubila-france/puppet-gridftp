@@ -1,4 +1,4 @@
-name    'gridftp'
+name    'lcgdm-gridftp'
 version '0.1.0'
 source 'UNKNOWN'
 author 'puppet'
