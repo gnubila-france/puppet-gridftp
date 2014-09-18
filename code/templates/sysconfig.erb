@@ -5,3 +5,4 @@
 <%if @thread_model.to_s!='' -%>export GLOBUS_THREAD_MODEL="<%= @thread_model %>"<% end -%>
 
 <%if @globus_tcp_port_range.to_s!='' -%>export GLOBUS_TCP_PORT_RANGE="<%=globus_tcp_port_range%>"<% end -%>
+<%if @globus_udp_port_range.to_s!='' -%>export GLOBUS_UDP_PORT_RANGE="<%=globus_udp_port_range%>"<% end -%>

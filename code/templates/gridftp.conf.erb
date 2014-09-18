@@ -140,6 +140,10 @@ banner_terse <%= @banner_terse %>
 # 
 # Others
 #
+<% if @udt -%>
+dc_whitelist udt,gsi,tcp
+<% end -%>
+
 use_home_dirs <%= @use_home_dirs %>
 
 debug <%= @debug %>
