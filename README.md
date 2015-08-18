@@ -1,10 +1,8 @@
 ## puppet-gridftp module
+[![Puppet Forge](http://img.shields.io/puppetforge/v/lcgdm/gridftp.svg)](https://forge.puppetlabs.com/lcgdm/gridftp)
+[![Build Status](https://travis-ci.org/cern-it-sdc-id/puppet-gridftp.svg?branch=master)]([https://travis-ci.org/cern-it-sdc-id/puppet-gridftp.svg)
 
 This is the puppet-gridftp module, it configures a Globus gridftp server, developed at CERN , IT-SDC-ID section
-
-###CI builds
-
-[![Build Status](https://travis-ci.org/cern-it-sdc-id/puppet-gridftp.svg?branch=master)]([https://travis-ci.org/cern-it-sdc-id/puppet-gridftp.svg)
 
 ### License
 ASL 2.0
