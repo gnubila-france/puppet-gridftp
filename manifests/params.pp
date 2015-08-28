@@ -77,6 +77,7 @@ class gridftp::params (
     $thread_model = hiera("gridftp::params::thread_model",undef),
     $globus_tcp_port_range = hiera("gridftp::params::globus_tcp_port_range",undef),
     $globus_udp_port_range = hiera("gridftp::params::globus_udp_port_range",undef),
+    $force_tls = hiera("gridftp::params::force_tls",1),
     $service = hiera("gridftp::params::service","globus-gridftp-server"),
     
     $udt = hiera("gridftp::params::udt",false),
