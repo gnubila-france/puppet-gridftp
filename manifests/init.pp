@@ -22,7 +22,7 @@
 class gridftp (
 ) inherits gridftp::params {
 
-  Class[Gridftp::Install] -> Class[Gridftp::Config] -> Class[Gridftp::Service]
+  Class[gridftp::install] -> Class[gridftp::config] -> Class[gridftp::service]
 
   class{"gridftp::install":}
   class{"gridftp::config":}
