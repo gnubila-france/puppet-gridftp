@@ -24,8 +24,8 @@ class gridftp (
 
   Class[gridftp::install] -> Class[gridftp::config] -> Class[gridftp::service]
 
-  class{"gridftp::install":}
-  class{"gridftp::config":}
-  class{"gridftp::service":}
+  class{'gridftp::install':}
+  class{'gridftp::config':}
+  class{'gridftp::service':}
 
 }
